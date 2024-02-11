@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wiggle_settings"
+version = "0.0.1"
+authors = [
+  { name="Studio Rabota" },
+]
+description = "WiggleSettings - Track WiggleBin settings file for changes"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  'watchdog'
+]
+
+[project.scripts]
+wiggle-settings = "wiggle_settings.main:main"
+wiggle-settings-install = "wiggle_settings.install:install"
+
+[project.urls]
+"Homepage" = "https://github.com/wiggle-bin/wiggle-settings.git"

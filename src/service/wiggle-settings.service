@@ -1,0 +1,9 @@
+[Unit]
+Description=WiggleSettings service
+
+[Service]
+WorkingDirectory=%h
+ExecStart=/bin/bash /usr/bin/wiggle-settings-boot.sh
+
+[Install]
+WantedBy=default.target
