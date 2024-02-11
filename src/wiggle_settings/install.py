@@ -1,11 +1,13 @@
 import os
 from pathlib import Path
 
+BOOTH_FILE = 'wiggle-settings-boot.sh'
+SERVICE_FILE = 'wiggle-settings.service'
 
 def install():
-    scriptFile = Path(__file__).parent / f"service/wiggle-settings-boot.sh"
-    serviceFile = Path(__file__).parent / f"service/wiggle-settings-service"
-    os.system(f"sudo cp {scriptFile} /usr/bin/wiggle-settings-boot.sh")
-    os.system(f"sudo cp {serviceFile} /etc/systemd/user/wiggle-settings-service")
-    os.system("systemctl --user enable wiggle-settings-service")
-    os.system("systemctl --user start wiggle-settings-service")
+    scriptFile = Path(__file__).parent / f"service/{BOOTH_FILE}.sh"
+    serviceFile = Path(__file__).parent / f"service/{SERVICE_FILE}"
+    os.system(f"sudo cp {scriptFile} /usr/bin/{BOOTH_FILE}.sh")
+    os.system(f"sudo cp {serviceFile} /etc/systemd/user/{SERVICE_FILE}")
+    os.system("systemctl --user enable {SERVICE_FILE}")
+    os.system("systemctl --user start {SERVICE_FILE}")
