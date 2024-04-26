@@ -18,6 +18,10 @@ class Status:
     ON = "on"
     OFF = "off"
 
+def create_directory():
+    os.makedirs(BASE_FOLDER, exist_ok=True)
+
+create_directory()
 
 def read_settings():
     if os.path.exists(SETTINGS_FILE):
@@ -83,9 +87,7 @@ def trigger_settings_change():
     settings = read_settings()
 
     if settings["light"] == Status.ON:
-        print('light on')
-        os.system(f"wiggle-light --on")
-        print('light on done')
+        subprocess.run(["wiggle-light", "--on"])
     elif settings["light"] == Status.OFF:
         subprocess.run(["wiggle-light", "--off"])
 
