@@ -9,12 +9,10 @@ from threading import Timer
 from pathlib import Path
 
 HOME_FOLDER = Path.home()
-BASE_FOLDER = HOME_FOLDER / "WiggleR"
-SETTINGS_FOLDER = BASE_FOLDER / "Settings"
+BASE_FOLDER = HOME_FOLDER / "WiggleBin"
 
-SETTINGS_FILE = SETTINGS_FOLDER / "settings.json"
+SETTINGS_FILE = BASE_FOLDER / "settings.json"
 DEFAULT_SETTINGS_FILE = Path(__file__).parent / "default.json"
-
 
 class Status:
     ON = "on"
@@ -85,9 +83,11 @@ def trigger_settings_change():
     settings = read_settings()
 
     if settings["light"] == Status.ON:
-        subprocess.run(["sudo", "wiggle-light", "--on", "0.1"])
+        print('light on')
+        os.system(f"wiggle-light --on")
+        print('light on done')
     elif settings["light"] == Status.OFF:
-        subprocess.run(["sudo", "wiggle-light", "--off"])
+        subprocess.run(["wiggle-light", "--off"])
 
     if settings["recording"] == Status.ON:
         subprocess.run(["wiggle-camera", "--service", "start"])

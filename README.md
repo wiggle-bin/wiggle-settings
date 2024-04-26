@@ -35,6 +35,12 @@ To start the service run:
 systemctl --user start wiggle-settings.service
 ```
 
+Watching output of the service:
+
+```
+journalctl --user-unit=wiggle-settings.service -f
+```
+
 ## Installation for development
 
 Updating packages on Raspberry Pi
