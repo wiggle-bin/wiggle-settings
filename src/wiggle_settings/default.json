@@ -1,4 +1,13 @@
 {
     "light": "on", 
-    "recording": "off"
+    "recording": "off",
+    "roboflow": {
+        "api_key": "...",
+        "workspace": "worms-gwlsf",
+        "project": "wigglebin",
+        "version": "1",
+        "url": "http://localhost:9001/",
+        "confidence": 10,
+        "overlap": 30
+    }
 }
